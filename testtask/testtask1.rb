@@ -1,21 +1,20 @@
 def add_odd_even(string)
-  string = string.split('')
+  string = string.chars
   even = string.values_at(* string.each_index.select {|i| i.even?})
   odd = string.values_at(* string.each_index.select {|i| i.odd?})
   even = odd + even
-  even.join('')
+  even.join
 end
-
 
 def decrypt_str(string)
   delimiter = string.length/2.to_i
-  part_one = string.slice(0, delimiter ).split('')
-  part_two = string.slice(delimiter...).split('')
-  part_two.zip(part_one).join()
+  part_one = string.slice(0, delimiter).split('')
+  part_two = string.slice(delimiter, part_two.length).split('')
+  part_two.zip(part_one).join
 end
 
 def ecrypt(str, n)
-  if str or n <=0
+  if str || n <= 0
     n.times do
       str = add_odd_even str.downcase
     end
@@ -24,7 +23,7 @@ def ecrypt(str, n)
 end
 
 def decrypt(str, n)
-  if str or n <=0
+  if str || n <= 0
     n.times do
       str = decrypt_str str
     end
