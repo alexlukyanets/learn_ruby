@@ -6,7 +6,7 @@ def add_even_odd(binary)
   even = even + odd
 end
 
-d = "k".ord.to_s(2).chars.map(&:to_s)
+d = "A".ord.to_s(2).chars.map(&:to_s)
 print d
 puts
 print add_even_odd d

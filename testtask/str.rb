@@ -1,20 +1,31 @@
-def add_even_odd(binary)
-  even = binary.values_at(* binary.each_index.select {|i| i.even?})
-  odd = binary.values_at(* binary.each_index.select {|i| i.odd?})
-  even = even + odd
+def add_odd_even(string, enc = TRUE)
+  string = string.split('')
+  even = string.values_at(* string.each_index.select {|i| i.even?})
+  odd = string.values_at(* string.each_index.select {|i| i.odd?})
+  even = odd + even
+  even.join('')
 end
 
-def get_string(array)
-  array.join('').to_i(2).chr
+def ecrypt(str, n)
+  n.times do |i|
+    str = add_odd_even str.downcase
+  end
+  str
 end
 
-d = "A".ord.to_s(2).chars.map(&:to_i)
-print d
-puts
-s =  add_even_odd d
-puts
-print get_string s
+def decrypt(str, n)
+  n.times do |i|
+    str = add_odd_even str, FALSE
+  end
+  str
+end
 
-chars
+n = 1
+str = 'Abcdefghij'
+puts str
+enc = ecrypt(str, n)
+print enc
+puts
+#print decrypt(enc, n)
 
-each byte
+
