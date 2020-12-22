@@ -1,4 +1,4 @@
-def add_odd_even(string, enc = TRUE)
+def add_odd_even(string)
   string = string.split('')
   even = string.values_at(* string.each_index.select {|i| i.even?})
   odd = string.values_at(* string.each_index.select {|i| i.odd?})
@@ -6,16 +6,28 @@ def add_odd_even(string, enc = TRUE)
   even.join('')
 end
 
+
+def decrypt_str(string)
+  delimiter = string.length/2.to_i
+  part_one = string.slice(0, delimiter ).split('')
+  part_two = string.slice(delimiter...).split('')
+  part_two.zip(part_one).join()
+end
+
 def ecrypt(str, n)
-  n.times do |i|
-    str = add_odd_even str.downcase
+  if str or n <=0
+    n.times do
+      str = add_odd_even str.downcase
+    end
   end
   str
 end
 
 def decrypt(str, n)
-  n.times do |i|
-    str = add_odd_even str, FALSE
+  if str or n <=0
+    n.times do
+      str = decrypt_str str
+    end
   end
   str
 end
@@ -26,6 +38,6 @@ puts str
 enc = ecrypt(str, n)
 print enc
 puts
-#print decrypt(enc, n)
+print decrypt(enc, n)
 
 
