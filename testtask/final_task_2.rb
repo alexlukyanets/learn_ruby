@@ -19,6 +19,5 @@ I solved problems in my task. I'll prepare to interview/colloquy because task ha
 # puts 'Enter your string:'
 # string = gets.chomp
 
-
-print string_processing(string, regex)
+print "Unique Words: #{string_processing(string, regex)}"
 
