@@ -18,6 +18,9 @@ I'd to show my great task;
 I solved problems in my task. I'll prepare to interview/colloquy because task has ready"""
 # puts 'Enter your string:'
 # string = gets.chomp
-
+#
+puts '#'*50 + ' STRING ' + '#'*42
+puts string
+puts '#'*100
 print "Unique Words: #{string_processing(string, regex)}"
 
